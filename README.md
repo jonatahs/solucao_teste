@@ -14,8 +14,11 @@ Neste primeiro entregável, foi solicitado um relatório relatando algumas anoma
 
 ### Resultados:
 
-O dashboard desenvolvido apresenta uma visualização clara e concisa das principais tendências e insights dos dados, possibilitando uma análise mais profunda e tomada de decisões informadas.
-![image](https://github.com/jonatahs/solucao_teste/assets/55710320/7ffde4b1-59eb-4a12-a7c3-bad550df0449)
+O dashboard desenvolvido apresenta uma visualização clara e concisa das principais tendências e insights dos dados, possibilitando uma análise mais profunda e tomada de decisões informadas.<br><br>
+
+Caso deseje visualizar o resultado final do Dashboard é possível visualiza-lo <a href = "http://surl.li/rvpsv"> CLICANDO AQUI ! </a>, caso deseje visualizar o projeto o mesmo está na pasta chamada 1-entrega
+
+### Modelagem Star Schema adotado no Power BI
 ![image](https://github.com/jonatahs/solucao_teste/assets/55710320/f6bdcb80-405c-4647-a08b-974247a634b7)
 
 ## Entrega - 2
@@ -31,3 +34,17 @@ No segundo desafio, foi solicitado o tratamento de um arquivo JSON com alguns cr
 ### Alternativas:
 
 Além da exportação para CSV, outras opções de armazenamento e análise dos dados poderiam ser consideradas, como a utilização de arquivos Parquet para armazenamento eficiente ou a inserção direta dos dados em um banco de dados para consulta posterior.
+
+## Entrega - 3
+No terceito desafio foi proposto para desenvolver uma arquitura como fonte inicial uma API se embaseando no JSON da atividade anterior.
+
+### Arquitetura 
+![arquitetura_diagrama](https://github.com/jonatahs/solucao_teste/assets/55710320/30e8bc4e-2a91-4182-a638-9621b810a43e)
+
+1. **Fonte inicial**: Aqui encontra-se a fonte inicial, sendo ela uma API retornando dados no formato JSON.
+2. **Extract and Load**: Nesta fase, foi decidido usar o Azure Data Factory integrando com o API e carregando os dados em seu formato bruto no Azure Data Lake Storage Gen2
+3. **Transform and load**: Está fase será responsável pela transformação dos dados, ou seja, vamos transformar os dados semi-estruturados para o formato estrutura utilizando Azure Databricks e carregando os dados em um Pool de SQL Dedicado no Azure Synapse Analytics, aqui será possível montar o Data Warehouse seguindo o modelo dimensional.
+4. **Visualization**: Conforme o Data Warehouse foi desenvolvido atendendo o modelo dimensional e com os dados carregados, vamos integrar com o Power BI para que seja possível apresentar as analises, tendencias e insights de forma visual e interativa.<br><br>
+   **Machine Learnind**: Com os dados tratados em sua forma estruturada, é possível aproveitarmos a arquitetura carregando os dados em um banco de dados no Azure Synapse Analytics, tratando e padronizando-os para atender o algoritmo de machine learning, onde iremos treinar o modelo.
+5. **Analytical Workload**: Conforme os dados foram implementados no algoritmo de machine learning, iremos armazenar os resultados em outro banco de dados no Azure Synapse.
+6. **Visualization**: Após a carga dos dados no banco de dados do Azure Synapse, com os resultados de machine learning, vamos integra-lo com o Power BI para apresentar os resultados da análise preditiva.
