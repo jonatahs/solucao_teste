@@ -5,6 +5,16 @@ import os
 
 class ETL_JSON:
         
+    def __init__(self):
+        print("""
+            # ***********************************
+            #   
+            #           INICIANDO ETL !!!
+            #
+            # ***********************************
+          """)
+        
+
     def busca_arquivo(self):
 
         # Buscando Arquivo JSON
@@ -28,6 +38,14 @@ class ETL_JSON:
                     "Value"         : product["Value"],
                     "Quantity"      : product["Quantity"]
                 })
+
+        print("""
+            # ***********************************
+            #   
+            #   JSON tratado com sucesso !!!
+            #
+            # ***********************************
+          """)
 
         return blank_list
     
@@ -53,37 +71,35 @@ class ETL_JSON:
         # Normalizando tabela fato
         df_fato = df[['CreateDate','Discount','NFeID','ProductName','Quantity']]
 
+        print("""
+            # ***********************************
+            #   
+            #   Dataframes Gerado com Sucesso !!!
+            #
+            # ***********************************
+          """)
+
         return df_dim_nfe, df_dim_produto, df_fato
-        
+    
+    def __del__(self):
+        print("""
+            # ***********************************
+            #   
+            #   ETL FINALIZADO COM SUCESSO !!!
+            #
+            # ***********************************
+          """)
 if __name__ == "__main__":
 
-    print("""
-            # ********************
-            #   
-            #   INICIANDO ETL !!!
-            #
-            # ********************
-          """)
+    
+    obj                                     = ETL_JSON()
+    json_data                               = obj.busca_arquivo()
+    trata_arquivo_json                      = obj.trata_arquivo_json(json_data)
+    
+    df                                      = obj.gera_dataframe(trata_arquivo_json)
+    df_dim_nfe, df_dim_produto, df_fato     = obj.gerando_modelo_dimensional(df)
 
-    json_data                               = ETL_JSON().busca_arquivo()
-    trata_arquivo_json                      = ETL_JSON().trata_arquivo_json(json_data)
-    print("""
-            # ********************
-            #   
-            #   ARQUIVO JSON TRATADO !!!
-            #
-            # ********************
-          """)
-    df                                      = ETL_JSON().gera_dataframe(trata_arquivo_json)
-    df_dim_nfe, df_dim_produto, df_fato     = ETL_JSON().gerando_modelo_dimensional(df)
-
-    print("""
-            # ********************
-            #   
-            #   DATAFRAMES GERADOS !!!
-            #
-            # ********************
-          """)
+    
 
     # Caminho para os arquivos
     dim_nfe_csv = "dim_nfe.csv"
@@ -102,11 +118,3 @@ if __name__ == "__main__":
     df_dim_nfe.to_csv(dim_nfe_csv, index=False)
     df_dim_produto.to_csv(dim_produto_csv, index=False)
     df_fato.to_csv(fato_vendas_csv, index=False)
-
-    print("""
-            # ********************
-            #   
-            #   ETL FINALIZADO COM SUCESSO !!!
-            #
-            # ********************
-          """)
