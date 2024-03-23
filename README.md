@@ -16,7 +16,7 @@ Neste primeiro entregável, foi solicitado um relatório relatando algumas anoma
 
 O dashboard desenvolvido apresenta uma visualização clara e concisa das principais tendências e insights dos dados, possibilitando uma análise mais profunda e tomada de decisões informadas.<br><br>
 
-Caso deseje visualizar o resultado final do Dashboard é possível visualiza-lo <a href = "http://surl.li/rvpsv"> CLICANDO AQUI ! </a>, caso deseje visualizar o projeto o mesmo está na pasta chamada 1-entrega
+Caso deseje visualizar o resultado final do Dashboard é possível visualiza-lo <a href = "[http://surl.li/rvpsv](https://app.powerbi.com/view?r=eyJrIjoiZWM3NDc0MmItYTM3NC00YWJjLWJkZTItYjljODgwMjQ5OTgyIiwidCI6IjExZGJiZmUyLTg5YjgtNDU0OS1iZTEwLWNlYzM2NGU1OTU1MSIsImMiOjR9)"> CLICANDO AQUI ! </a>, caso deseje visualizar o projeto o mesmo está na pasta chamada 1-entrega
 
 ### Modelagem Star Schema adotado no Power BI
 ![image](https://github.com/jonatahs/solucao_teste/assets/55710320/f6bdcb80-405c-4647-a08b-974247a634b7)
