@@ -93,18 +93,21 @@ if __name__ == "__main__":
 
     
     obj                                     = ETL_JSON()
+
     json_data                               = obj.busca_arquivo()
+
     trata_arquivo_json                      = obj.trata_arquivo_json(json_data)
     
     df                                      = obj.gera_dataframe(trata_arquivo_json)
+
     df_dim_nfe, df_dim_produto, df_fato     = obj.gerando_modelo_dimensional(df)
 
     
 
     # Caminho para os arquivos
-    dim_nfe_csv = "dim_nfe.csv"
-    dim_produto_csv = "dim_produto.csv"
-    fato_vendas_csv = "fato_vendas.csv"
+    dim_nfe_csv         = "dim_nfe.csv"
+    dim_produto_csv     = "dim_produto.csv"
+    fato_vendas_csv     = "fato_vendas.csv"
 
     # Verificar se os arquivos existem e remove se existem
     if os.path.exists(dim_nfe_csv):
